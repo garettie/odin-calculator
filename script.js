@@ -36,13 +36,11 @@ opButton.addEventListener("click", (e) => {
     return;
   }
   if (op === "=") {
-    a = String(operate(a, b, operator));
+    if (b !== "" && operator !== "") {
+      a = String(operate(a, b, operator));
+    }
     b = "";
-    operator = "";
-  } else if (b != "") {
-    a = String(operate(a, b, operator));
-    b = "";
-    operator = op;
+    operator = "=";
   } else operator = op;
   updateDisplay();
 });
