@@ -41,6 +41,10 @@ opButton.addEventListener("click", (e) => {
     }
     b = "";
     operator = "=";
+  } else if (b !== "") {
+    a = String(operate(a, b, operator));
+    b = "";
+    operator = op;
   } else operator = op;
   updateDisplay();
 });
