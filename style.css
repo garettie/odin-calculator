@@ -1,0 +1,84 @@
+* {
+  font-family: "Comic Sans MS", sans-serif;
+}
+
+body {
+  background-color: #1f1d2e;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+#header {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  font-size: 72px;
+  color: #e0def4;
+  text-align: center;
+  padding: 8px;
+}
+
+#calc {
+  display: flex;
+  max-width: 400px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  gap: 20px;
+  padding: 32px;
+  background-color: #26233a;
+  border: 2px solid #e0def4;
+  border-radius: 24px;
+}
+
+#display {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 30px;
+  height: 50px;
+  min-width: 100%;
+}
+
+h1 {
+  font-size: 64px;
+  color: #e0def4;
+  padding: 0;
+  margin: 0;
+}
+
+.buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.numbers,
+.operations {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+button {
+  background-color: #e0def4;
+  color: #26233a;
+  font-size: 32px;
+  padding: 24px 12px;
+  border: 2px #e0def4;
+  border-radius: 12px;
+}
+
+button:hover {
+  background-color: #908caa;
+}
+
+.numbers button {
+  flex-basis: calc((100% - 20px) / 3);
+}
+
+.operations button {
+  flex-basis: calc((100% - 10px) / 2);
+}

@@ -1,0 +1,84 @@
+// user presses a number, gets stored as a
+// user presses an operator, gets stored as operator
+// user presses another number, gets stored as b
+// user presses equals sign or another operator, evaluate
+
+let a = "";
+let b = "";
+let operator = "";
+
+const display = document.querySelector("#display");
+const h1 = document.createElement("h1");
+display.appendChild(h1);
+
+const numButtons = document.querySelector(".numbers");
+numButtons.addEventListener("click", (e) => {
+  const number = e.target.textContent;
+  if (operator === "") {
+    a += number;
+  } else b += number;
+  updateDisplay();
+  return;
+});
+const opButton = document.querySelector(".operations");
+opButton.addEventListener("click", (e) => {
+  const op = e.target.textContent;
+  if (op === "c") {
+    a = "";
+    b = "";
+    operator = "";
+  }
+  if (op === "") {
+    a = String(operate(a, b, operator));
+    b = "";
+    operator = "";
+  } else if (b != "") {
+    a = String(operate(a, b, operator));
+    b = "";
+    operator = op;
+  } else operator = op;
+  updateDisplay();
+});
+
+function add(a, b) {
+  a = Number(a);
+  b = Number(b);
+  return a + b;
+}
+
+function substract(a, b) {
+  return a - b;
+}
+
+function multiply(a, b) {
+  return a * b;
+}
+
+function divide(a, b) {
+  return a / b;
+}
+
+function operate(a, b, operator) {
+  let answer;
+  a = Number(a);
+  b = Number(b);
+  switch (operator) {
+    case "+":
+      answer = add(a, b);
+      break;
+    case "-":
+      answer = substract(a, b);
+      break;
+    case "*":
+      answer = multiply(a, b);
+      break;
+    case "/":
+      answer = divide(a, b);
+      break;
+  }
+  return answer;
+}
+
+function updateDisplay() {
+  h1.textContent = `${a} ${operator} ${b}`;
+}
