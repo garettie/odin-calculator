@@ -14,7 +14,8 @@ numButtons.addEventListener("click", (e) => {
     return;
   }
   if (operator === "") {
-    if (a === "0" && number !== "00") a = "";
+    if (a === "0" && number === "00") return;
+    if (a === "0") a = "";
     a += number;
   } else if (operator === "=") {
     a = "";
@@ -89,6 +90,6 @@ function operate(a, b, operator) {
 }
 
 function updateDisplay() {
-  h1.textContent = `${a} ${operator} ${b}`;
+  h1.textContent = operator === "=" ? a : `${a} ${operator} ${b}`;
 }
 updateDisplay();
