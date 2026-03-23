@@ -14,7 +14,7 @@ numButtons.addEventListener("click", (e) => {
     return;
   }
   if (operator === "") {
-    if (a === "0") a = "";
+    if (a === "0" && number !== "00") a = "";
     a += number;
   } else if (operator === "=") {
     a = "";
@@ -35,7 +35,7 @@ opButton.addEventListener("click", (e) => {
     updateDisplay();
     return;
   }
-  if (op === "") {
+  if (op === "=") {
     a = String(operate(a, b, operator));
     b = "";
     operator = "";
